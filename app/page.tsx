@@ -730,7 +730,14 @@ function BookingForm({
           Netlify Forms is enabled with name/data-netlify.
           In Netlify, open Forms for this site after deployment to view submissions.
           You can swap this later for Formspree, Basin, a custom API route, or Calendly.
-        */}        <form name={formName} data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+        */}        <form
+          name={formName}
+          method="POST"
+          action="/diolch"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          hidden
+        >
           <input type="hidden" name="form-name" value={formName} />
           <input name="bot-field" />
           <input type="text" name="guardian-name" />
