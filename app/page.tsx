@@ -104,7 +104,7 @@ const copy = {
       kicker: "Cyswllt",
       heading: "Barod i roi cynnig ar wers?",
       intro:
-        "Gwersi dawns i unrhyw un rhwng 10-15 oed, wedi'i leoli ym Mae Colwyn. Anfonwch neges neu dilynwch Instagram am fwy o wybodaeth.",
+        "Gwersi dawns i unrhyw un rhwng 10-15 oed, wedi'i leoli ym Mae Colwyn. Anfonwch neges neu dilynwch ein Instagram am fwy o wybodaeth.",
       email: "E-bost",
       area: "Ardal",
       areaValue: "Bae Colwyn / Gogledd Cymru",
@@ -140,7 +140,7 @@ const copy = {
       kicker: "New dance classes with Keitija Knutova",
       headline: "Dance classes for anyone aged 10-15.",
       subheading:
-        "Based in Colwyn Bay, with street and commercial classes built around energy, confidence and fun. Message for more info.",
+        "Based in Colwyn Bay, with street and commercial classes built around energy, confidence and fun. Message us for more info.",
       primaryCta: "Book a trial class",
       secondaryCta: "View classes",
       graphicLabel: "Abstract movement graphic",
@@ -215,7 +215,7 @@ const copy = {
       kicker: "Contact",
       heading: "Ready to try a class?",
       intro:
-        "Dance classes for anyone aged 10-15, based in Colwyn Bay. Send a message or follow Instagram for more information.",
+        "Dance classes for anyone aged 10-15, based in Colwyn Bay. Send a message or follow us on Instagram for more information.",
       email: "Email",
       area: "Area",
       areaValue: "Colwyn Bay / North Wales",
@@ -396,7 +396,7 @@ function Header({
         className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-4"
         aria-label={t.navLabel}
       >
-        <a href="#" className="flex min-w-0 items-center gap-3" aria-label={t.homeLabel}>
+        <a href="#content" className="flex min-w-0 items-center gap-3" aria-label={t.homeLabel}>
           <LogoMark className="size-12 shrink-0" />
           <span className="truncate text-lg font-black tracking-tight text-[var(--kinetik-ink)]">
             Kinetik Dancers
@@ -536,7 +536,7 @@ function Hero({ t }: { t: (typeof copy)[Language] }) {
             <a
               href={instagramUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="rounded-full border-2 border-[var(--kinetik-ink)] bg-transparent px-6 py-4 text-center text-base font-black text-[var(--kinetik-ink)] transition hover:bg-[var(--kinetik-ink)] hover:text-white focus:outline-none focus:ring-4 focus:ring-white/70"
             >
               Instagram
@@ -883,7 +883,7 @@ function Contact({ t }: { t: (typeof copy)[Language] }) {
             </li>
             <li>
               Instagram:{" "}
-              <a className="underline decoration-4 decoration-[var(--kinetik-lime)]" href={instagramUrl} target="_blank" rel="noreferrer">
+              <a className="underline decoration-4 decoration-[var(--kinetik-lime)]" href={instagramUrl} target="_blank" rel="noopener noreferrer">
                 @kinetikdancers
               </a>
             </li>
@@ -935,7 +935,7 @@ function Footer({ t }: { t: (typeof copy)[Language] }) {
             </h2>
             <ul className="mt-3 space-y-2">
               <li>
-                <a href={instagramUrl} target="_blank" rel="noreferrer" className="text-white/85 transition hover:text-white">
+                <a href={instagramUrl} target="_blank" rel="noopener noreferrer" className="text-white/85 transition hover:text-white">
                   Instagram
                 </a>
               </li>
