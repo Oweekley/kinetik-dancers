@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://genuine-baklava-2427ce.netlify.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://kinetik-dancers.netlify.app";
 
 export default function robots(): MetadataRoute.Robots {
   return {

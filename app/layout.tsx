@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://genuine-baklava-2427ce.netlify.app";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://kinetik-dancers.netlify.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
