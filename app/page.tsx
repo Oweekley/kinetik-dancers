@@ -750,9 +750,10 @@ function BookingForm({
             <option>Junior Dance</option>
             <option>Street + Commercial</option>
           </select>
-          <textarea name="message" />
+          <textarea name="message"></textarea>
           <input type="checkbox" name="media-consent-info" />
-        </form>        <form
+        </form>
+        <form
           name={formName}
           method="POST"
           action="/diolch"
@@ -797,7 +798,7 @@ function BookingForm({
               rows={5}
               className="rounded-2xl border border-black/10 bg-white px-4 py-3 text-base font-semibold outline-none transition focus:border-[var(--kinetik-pink)] focus:ring-4 focus:ring-pink-100"
               placeholder={t.booking.placeholder}
-            />
+            ></textarea>
           </label>
           <label className="mt-5 flex gap-3 text-sm font-semibold leading-6 text-neutral-700">
             <input
