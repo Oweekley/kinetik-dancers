@@ -96,7 +96,7 @@ const copy = {
       submit: "Anfon ymholiad",
       submitting: "Yn anfon...",
       submitError:
-        "Doedd dim modd anfon y ffurflen. Rhowch gynnig arall arni neu anfonwch neges ar Instagram.",
+        "Ni allwyd anfon y ffurflen. Ceisiwch eto, neu anfonwch neges ar Instagram.",
       required: "Angenrheidiol",
       botField: "Peidiwch â llenwi hwn os ydych yn berson.",
     },
@@ -712,37 +712,6 @@ function BookingForm({
   language: Language;
   t: (typeof copy)[Language];
 }) {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setIsSubmitting(true);
-
-    const formData = new FormData(event.currentTarget);
-    const encodedFormData = new URLSearchParams();
-
-    formData.forEach((value, key) => {
-      encodedFormData.append(key, value.toString());
-    });
-
-    try {
-      const response = await fetch("/__forms.html", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encodedFormData.toString(),
-      });
-
-      if (!response.ok) {
-        throw new Error("Form submission failed");
-      }
-
-      window.location.href = "/diolch";
-    } catch {
-      window.alert(t.booking.submitError);
-      setIsSubmitting(false);
-    }
-  }
-
   return (
     <section id="booking" className="bg-white px-5 py-20">
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
@@ -764,7 +733,10 @@ function BookingForm({
         */}
         <form
           name={formName}
-          onSubmit={handleSubmit}
+          method="POST"
+          action="/diolch"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
           className="rounded-3xl bg-[#f6f7ef] p-5 shadow-sm ring-1 ring-black/5 sm:p-8"
         >
           <input type="hidden" name="form-name" value={formName} />
@@ -817,10 +789,9 @@ function BookingForm({
           </label>
           <button
             type="submit"
-            disabled={isSubmitting}
             className="mt-7 w-full rounded-full bg-[var(--kinetik-pink)] px-6 py-4 text-base font-black text-[var(--kinetik-ink)] shadow-[6px_6px_0_#111316] transition hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-pink-200"
           >
-            {isSubmitting ? t.booking.submitting : t.booking.submit}
+            {t.booking.submit}
           </button>
         </form>
       </div>
