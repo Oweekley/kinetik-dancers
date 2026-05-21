@@ -17,6 +17,8 @@ const copy = {
     languageLabel: "Dewis iaith",
     languageName: "Cymraeg",
     englishName: "English",
+    menuOpen: "Agor dewislen",
+    menuClose: "Cau dewislen",
     quickLinks: [
       ["Am Keitija", "#about"],
       ["Gwersi", "#classes"],
@@ -123,6 +125,8 @@ const copy = {
     languageLabel: "Choose language",
     languageName: "Welsh",
     englishName: "English",
+    menuOpen: "Open menu",
+    menuClose: "Close menu",
     quickLinks: [
       ["About Keitija", "#about"],
       ["Classes", "#classes"],
@@ -377,6 +381,9 @@ function Header({
   setLanguage: (language: Language) => void;
   t: (typeof copy)[Language];
 }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuLabel = isMenuOpen ? t.menuClose : t.menuOpen;
+
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-white/90 backdrop-blur">
       <nav
@@ -429,10 +436,59 @@ function Header({
           </div>
           <a
             href="#booking"
-            className="rounded-full bg-[var(--kinetik-ink)] px-4 py-2 text-sm font-black text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-black focus:outline-none focus:ring-4 focus:ring-pink-200"
+            className="hidden rounded-full bg-[var(--kinetik-ink)] px-4 py-2 text-sm font-black text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-black focus:outline-none focus:ring-4 focus:ring-pink-200 sm:inline-flex"
           >
             {t.trial}
           </a>
+          <button
+            type="button"
+            aria-label={menuLabel}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setIsMenuOpen((open) => !open)}
+            className="grid size-11 place-items-center rounded-full bg-[var(--kinetik-ink)] text-white shadow-sm transition hover:bg-black focus:outline-none focus:ring-4 focus:ring-pink-200 md:hidden"
+          >
+            <span className="grid gap-1.5" aria-hidden="true">
+              <span
+                className={`block h-0.5 w-5 rounded-full bg-current transition ${
+                  isMenuOpen ? "translate-y-2 rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-5 rounded-full bg-current transition ${
+                  isMenuOpen ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`block h-0.5 w-5 rounded-full bg-current transition ${
+                  isMenuOpen ? "-translate-y-2 -rotate-45" : ""
+                }`}
+              />
+            </span>
+          </button>
+        </div>
+        <div id="mobile-menu" className="w-full md:hidden">
+          {isMenuOpen ? (
+            <div className="mt-2 grid gap-2 rounded-3xl bg-[var(--kinetik-ink)] p-3 text-white shadow-xl">
+              {t.quickLinks.map(([label, href]) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="rounded-2xl px-4 py-3 text-base font-black transition hover:bg-white/10 focus:bg-white/10 focus:outline-none"
+                >
+                  {label}
+                </a>
+              ))}
+              <a
+                href="#booking"
+                onClick={() => setIsMenuOpen(false)}
+                className="rounded-2xl bg-[var(--kinetik-lime)] px-4 py-3 text-base font-black text-[var(--kinetik-ink)] transition hover:bg-white focus:outline-none focus:ring-4 focus:ring-white/30"
+              >
+                {t.trial}
+              </a>
+            </div>
+          ) : null}
         </div>
       </nav>
     </header>
