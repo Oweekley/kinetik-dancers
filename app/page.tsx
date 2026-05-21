@@ -7,6 +7,8 @@ const instagramUrl =
 
 type Language = "cy" | "en";
 
+const formName = "kinetik-interest";
+
 const copy = {
   cy: {
     navLabel: "Prif ddewislen",
@@ -90,6 +92,8 @@ const copy = {
       consent:
         "Rwy'n deall y gall Kinetik Dancers ofyn ar wahân am ganiatâd llun/fideo cyn rhannu unrhyw gynnwys o'r gwersi.",
       submit: "Anfon ymholiad",
+      required: "Angenrheidiol",
+      botField: "Peidiwch â llenwi hwn os ydych yn berson.",
     },
     contact: {
       kicker: "Cyswllt",
@@ -194,6 +198,8 @@ const copy = {
       consent:
         "I understand Kinetik Dancers may ask separately for photo/video consent before sharing any class content.",
       submit: "Send enquiry",
+      required: "Required",
+      botField: "Do not fill this in if you are human.",
     },
     contact: {
       kicker: "Contact",
@@ -318,11 +324,27 @@ export default function Home() {
   const t = copy[language];
 
   useEffect(() => {
+    const savedLanguage = window.localStorage.getItem("kinetik-language");
+
+    if (savedLanguage === "cy" || savedLanguage === "en") {
+      setLanguage(savedLanguage);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("kinetik-language", language);
     document.documentElement.lang = language === "cy" ? "cy-GB" : "en-GB";
   }, [language]);
 
   return (
-    <main>
+    <>
+      <a
+        href="#content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-5 focus:py-3 focus:font-black focus:text-[var(--kinetik-ink)] focus:shadow-xl"
+      >
+        Skip to content
+      </a>
+      <main id="content">
       <Header language={language} setLanguage={setLanguage} t={t} />
       <Hero t={t} />
       <About t={t} />
@@ -331,7 +353,8 @@ export default function Home() {
       <BookingForm language={language} t={t} />
       <Contact t={t} />
       <Footer t={t} />
-    </main>
+      </main>
+    </>
   );
 }
 
@@ -642,22 +665,35 @@ function BookingForm({
           </p>
         </div>
         {/*
-          Front-end only form for now.
-          To connect later, use Netlify Forms by adding name/data-netlify fields and deploying,
-          or send submissions to Formspree, Basin, a custom API route, or a booking tool such as Calendly.
+          Netlify Forms is enabled with name/data-netlify.
+          In Netlify, open Forms for this site after deployment to view submissions.
+          You can swap this later for Formspree, Basin, a custom API route, or Calendly.
         */}
-        <form className="rounded-3xl bg-[#f6f7ef] p-5 shadow-sm ring-1 ring-black/5 sm:p-8">
+        <form
+          name={formName}
+          method="POST"
+          action="/diolch"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          className="rounded-3xl bg-[#f6f7ef] p-5 shadow-sm ring-1 ring-black/5 sm:p-8"
+        >
+          <input type="hidden" name="form-name" value={formName} />
+          <label className="hidden">
+            {t.booking.botField}
+            <input name="bot-field" tabIndex={-1} autoComplete="off" />
+          </label>
           <div className="grid gap-5 sm:grid-cols-2">
-            <Field label={t.booking.guardian} id="guardian-name" />
-            <Field label={t.booking.dancer} id="dancer-name" />
-            <Field label={t.booking.age} id="dancer-age" type="number" />
-            <Field label={t.booking.email} id="email" type="email" />
-            <Field label={t.booking.phone} id="phone" type="tel" />
+            <Field label={t.booking.guardian} id="guardian-name" autoComplete="name" required />
+            <Field label={t.booking.dancer} id="dancer-name" autoComplete="off" required />
+            <Field label={t.booking.age} id="dancer-age" type="number" min="4" max="18" required />
+            <Field label={t.booking.email} id="email" type="email" autoComplete="email" required />
+            <Field label={t.booking.phone} id="phone" type="tel" autoComplete="tel" />
             <label className="grid gap-2 text-sm font-bold text-neutral-800">
               {t.booking.classInterest}
               <select
                 id="class-interest"
                 name="class-interest"
+                required
                 className="min-h-12 rounded-2xl border border-black/10 bg-white px-4 text-base font-semibold outline-none transition focus:border-[var(--kinetik-pink)] focus:ring-4 focus:ring-pink-100"
                 defaultValue=""
               >
@@ -684,6 +720,7 @@ function BookingForm({
             <input
               type="checkbox"
               name="media-consent-info"
+              required
               className="mt-1 size-5 rounded border-black/20 accent-[var(--kinetik-pink)]"
             />
             <span>{t.booking.consent}</span>
@@ -704,18 +741,33 @@ function Field({
   label,
   id,
   type = "text",
+  autoComplete,
+  min,
+  max,
+  required = false,
 }: {
   label: string;
   id: string;
   type?: string;
+  autoComplete?: string;
+  min?: string;
+  max?: string;
+  required?: boolean;
 }) {
   return (
     <label className="grid gap-2 text-sm font-bold text-neutral-800">
-      {label}
+      <span>
+        {label}
+        {required ? <span aria-hidden="true"> *</span> : null}
+      </span>
       <input
         id={id}
         name={id}
         type={type}
+        autoComplete={autoComplete}
+        min={min}
+        max={max}
+        required={required}
         className="min-h-12 rounded-2xl border border-black/10 bg-white px-4 text-base font-semibold outline-none transition focus:border-[var(--kinetik-pink)] focus:ring-4 focus:ring-pink-100"
       />
     </label>
@@ -803,9 +855,9 @@ function Footer({ t }: { t: (typeof copy)[Language] }) {
                   Instagram
                 </a>
               </li>
-              <li><a href="#" className="text-white/85 transition hover:text-white">{t.footer.privacy}</a></li>
-              <li><a href="#" className="text-white/85 transition hover:text-white">{t.footer.safeguarding}</a></li>
-              <li><a href="#" className="text-white/85 transition hover:text-white">{t.footer.terms}</a></li>
+              <li><a href="/privacy-policy" className="text-white/85 transition hover:text-white">{t.footer.privacy}</a></li>
+              <li><a href="/safeguarding" className="text-white/85 transition hover:text-white">{t.footer.safeguarding}</a></li>
+              <li><a href="/terms" className="text-white/85 transition hover:text-white">{t.footer.terms}</a></li>
             </ul>
           </div>
         </div>
