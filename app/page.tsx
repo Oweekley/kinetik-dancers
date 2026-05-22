@@ -761,33 +761,9 @@ function BookingForm({
           </p>
         </div>
         {/*
-          Netlify Forms is enabled with name/data-netlify.
-          In Netlify, open Forms for this site after deployment to view submissions.
-          You can swap this later for Formspree, Basin, a custom API route, or Calendly.
+          Netlify reads the form schema from public/__forms.html.
+          This visible form submits URL-encoded data with AJAX for Next.js runtime support.
         */}
-        <form
-          name={formName}
-          method="POST"
-          action="/diolch"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          hidden
-        >
-          <input type="hidden" name="form-name" value={formName} />
-          <input name="bot-field" />
-          <input type="text" name="guardian-name" />
-          <input type="text" name="dancer-name" />
-          <input type="number" name="dancer-age" />
-          <input type="email" name="email" />
-          <input type="tel" name="phone" />
-          <select name="class-interest">
-            <option>Mini Movers</option>
-            <option>Junior Dance</option>
-            <option>Street + Commercial</option>
-          </select>
-          <textarea name="message"></textarea>
-          <input type="checkbox" name="media-consent-info" />
-        </form>
         <form
           name={formName}
           method="POST"
