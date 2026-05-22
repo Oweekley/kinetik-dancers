@@ -22,17 +22,17 @@ const copy = {
     menuClose: "Cau dewislen",
     quickLinks: [
       ["Am Keitija", "#about"],
-      ["Gwersi", "#classes"],
+      ["Gwers", "#classes"],
       ["Archebu", "#booking"],
       ["Cyswllt", "#contact"],
     ],
     hero: {
-      kicker: "Gwersi dawns newydd gyda Keitija Knutova",
-      headline: "Gwersi dawns i unrhyw un rhwng 10-15 oed.",
+      kicker: "Gwers ddawns newydd gyda Keitija Knutova",
+      headline: "Gwers ddawns i unrhyw un rhwng 10-15 oed.",
       subheading:
-        "Wedi'i leoli ym Mae Colwyn, gyda dosbarthiadau street a commercial sy'n llawn egni, hyder a hwyl. Anfonwch neges am fwy o wybodaeth.",
+        "Wedi'i leoli ym Mae Colwyn, gyda gwers street a commercial sy'n llawn egni, hyder a hwyl. Anfonwch neges am fwy o wybodaeth.",
       primaryCta: "Archebu gwers brawf",
-      secondaryCta: "Gweld y gwersi",
+      secondaryCta: "Gweld y wers",
       graphicLabel: "Graffig symud haniaethol",
       movement: "Symud. Creu. Perthyn.",
       signoff: "Cariad mawr, Keitija",
@@ -44,30 +44,30 @@ const copy = {
     },
     about: {
       kicker: "Am Keitija",
-      heading: "Dawnsiwr lleol sydd wedi tyfu drwy gystadlu, perfformio a chreu.",
+      heading: "Dawnswraig sydd wedi tyfu drwy gystadlu, perfformio a chreu.",
       paragraphs: [
-        "Mae Kinetik Dancers yn cael ei redeg gan Keitija Knutova, dawnsiwr a pherfformiwr o Fae Colwyn sydd wedi bod yn rhan o fyd dawns a pherfformio lleol ers yn ifanc.",
-        "Mae ei thaith ddawns ddiweddar wedi cynnwys hyfforddi a pherfformio gyda Step One Performing Arts ac Autonomy Dancers, grŵp dawns o Ogledd Cymru sydd wedi cystadlu ar lefel uchel ac wedi perfformio mewn digwyddiadau mawr.",
+        "Mae Kinetik Dancers yn cael ei redeg gan Keitija Knutova, dawnswraig a pherfformiwr sydd wedi bod yn rhan o fyd dawns a pherfformio ers yn ifanc.",
+        "Mae ei thaith ddawns wedi cynnwys hyfforddi, cystadlu a pherfformio mewn amrywiaeth o leoliadau, gyda phrofiad mewn street, commercial a pherfformio ar lwyfan.",
         "Nawr mae Keitija yn defnyddio'r profiad hwnnw i greu dosbarth street a commercial sy'n teimlo'n egniol, cyfeillgar ac adeiladol i bobl ifanc 10-15 oed.",
       ],
       highlights: [
         {
-          title: "Step One Performing Arts",
-          text: "Mae Step One yn ysgol berfformio ym Mae Colwyn gyda dosbarthiadau dawns, drama, perfformiadau, arholiadau a chystadlaethau rhanbarthol.",
+          title: "Profiad perfformio",
+          text: "Mae Keitija wedi hyfforddi a pherfformio gyda grwpiau dawns ac ysgolion perfformio, gan adeiladu hyder ar y llwyfan ac mewn ymarferion.",
         },
         {
-          title: "Autonomy Dancers",
-          text: "Mae Autonomy yn grŵp dawns street/hip-hop o Ogledd Cymru sydd wedi perfformio'n rhyngwladol ac wedi cystadlu mewn pencampwriaethau mawr.",
+          title: "Street + commercial",
+          text: "Mae ei steil yn dod â rwtinau street, commercial a hip-hop at ei gilydd mewn ffordd sy'n egniol ac yn hawdd i bobl ifanc ymuno.",
         },
         {
-          title: "Enillydd Eisteddfod",
-          text: "Mae canlyniadau cyhoeddus hefyd yn dangos Keitija yn ennill Dawns Hip-Hop/Stryd/Disgo yn Eisteddfod Rhanbarth Conwy 2018.",
+          title: "Enillydd Eisteddfod dwywaith",
+          text: "Mae Keitija wedi ennill yn yr Eisteddfod ddwywaith, gan gynnwys dawns hip-hop, stryd a disgo.",
         },
       ],
     },
     classesSection: {
-      kicker: "Gwersi",
-      heading: "Dod o hyd i'r wers iawn i'ch dawnsiwr.",
+      kicker: "Gwers",
+      heading: "Y wers gyntaf sydd wedi'i chynllunio.",
       priceLabel: "Pris",
       timeLabel: "Amser",
       locationLabel: "Lleoliad",
@@ -105,14 +105,14 @@ const copy = {
       kicker: "Cyswllt",
       heading: "Barod i roi cynnig ar wers?",
       intro:
-        "Gwersi dawns i unrhyw un rhwng 10-15 oed, wedi'i leoli ym Mae Colwyn. Anfonwch neges neu dilynwch ein Instagram am fwy o wybodaeth.",
+        "Gwers ddawns i unrhyw un rhwng 10-15 oed, wedi'i lleoli ym Mae Colwyn. Anfonwch neges neu dilynwch ein Instagram am fwy o wybodaeth.",
       email: "E-bost",
       area: "Ardal",
       areaValue: "Bae Colwyn / Gogledd Cymru",
       cta: "Archebu gwers brawf",
     },
     footer: {
-      intro: "Gwersi dawns cyfeillgar ar gyfer hyder, creadigrwydd a chymuned.",
+      intro: "Gwers ddawns gyfeillgar ar gyfer hyder, creadigrwydd a chymuned.",
       quickLinks: "Dolenni cyflym",
       useful: "Defnyddiol",
       privacy: "Polisi Preifatrwydd",
@@ -134,17 +134,17 @@ const copy = {
     menuClose: "Close menu",
     quickLinks: [
       ["About Keitija", "#about"],
-      ["Classes", "#classes"],
+      ["Class", "#classes"],
       ["Book", "#booking"],
       ["Contact", "#contact"],
     ],
     hero: {
-      kicker: "New dance classes with Keitija Knutova",
-      headline: "Dance classes for anyone aged 10-15.",
+      kicker: "New dance class with Keitija Knutova",
+      headline: "A dance class for anyone aged 10-15.",
       subheading:
-        "Based in Colwyn Bay, with street and commercial classes built around energy, confidence and fun. Message us for more info.",
+        "Based in Colwyn Bay, with a street and commercial class built around energy, confidence and fun. Message us for more info.",
       primaryCta: "Book a trial class",
-      secondaryCta: "View classes",
+      secondaryCta: "View class",
       graphicLabel: "Abstract movement graphic",
       movement: "Move. Create. Belong.",
       signoff: "Love, Keitija",
@@ -156,30 +156,30 @@ const copy = {
     },
     about: {
       kicker: "About Keitija",
-      heading: "A local dancer shaped by competing, performing and creating.",
+      heading: "A dancer shaped by competing, performing and creating.",
       paragraphs: [
-        "Kinetik Dancers is run by Keitija Knutova, a dancer and performer from Colwyn Bay who has been part of local dance and performance from a young age.",
-        "Her recent dance journey has included training and performing with Step One Performing Arts and Autonomy Dancers, a North Wales dance group connected with high-level competition and major event performances.",
+        "Kinetik Dancers is run by Keitija Knutova, a dancer and performer who has been part of dance and performance from a young age.",
+        "Her dance journey has included training, competing and performing across different settings, with experience in street, commercial and stage performance.",
         "Keitija is now using that experience to build an energetic, friendly and confidence-focused street and commercial class for young people aged 10-15.",
       ],
       highlights: [
         {
-          title: "Step One Performing Arts",
-          text: "Step One is a Colwyn Bay performing arts school offering dance, drama, performances, exams and regional competitions.",
+          title: "Performance experience",
+          text: "Keitija has trained and performed with dance groups and performing arts schools, building confidence on stage and in rehearsals.",
         },
         {
-          title: "Autonomy Dancers",
-          text: "Autonomy is a North Wales street/hip-hop dance group that has performed internationally and competed in major championships.",
+          title: "Street + commercial",
+          text: "Her style brings street, commercial and hip-hop routines together in a way that feels energetic and easy for young people to join.",
         },
         {
-          title: "Eisteddfod winner",
-          text: "Public results also show Keitija winning Hip-Hop/Street/Disco at Eisteddfod Rhanbarth Conwy 2018.",
+          title: "Two-time Eisteddfod winner",
+          text: "Keitija has won at the Eisteddfod twice, including hip-hop, street and disco dance.",
         },
       ],
     },
     classesSection: {
-      kicker: "Classes",
-      heading: "Find the right class for your dancer.",
+      kicker: "Class",
+      heading: "The first planned class.",
       priceLabel: "Price",
       timeLabel: "Time",
       locationLabel: "Location",
@@ -217,14 +217,14 @@ const copy = {
       kicker: "Contact",
       heading: "Ready to try a class?",
       intro:
-        "Dance classes for anyone aged 10-15, based in Colwyn Bay. Send a message or follow us on Instagram for more information.",
+        "A dance class for anyone aged 10-15, based in Colwyn Bay. Send a message or follow us on Instagram for more information.",
       email: "Email",
       area: "Area",
       areaValue: "Colwyn Bay / North Wales",
       cta: "Book a trial class",
     },
     footer: {
-      intro: "Friendly dance classes for confidence, creativity and community.",
+      intro: "A friendly dance class for confidence, creativity and community.",
       quickLinks: "Quick links",
       useful: "Useful",
       privacy: "Privacy Policy",
@@ -240,25 +240,9 @@ const classes = {
   // Edit class names, ages, prices, times and locations here when the timetable is confirmed.
   cy: [
     {
-      name: "Mini Movers",
-      ages: "Oed 4-7",
-      vibe: "Dosbarth y dyfodol ar gyfer symud chwareus, gemau rhythm a sylfeini dawns cyntaf.",
-      time: "I'w gyhoeddi",
-      price: "O £6 y wers",
-      location: "Bae Colwyn / Gogledd Cymru - lleoliad i'w gadarnhau",
-    },
-    {
-      name: "Junior Dance",
-      ages: "Oed 8-11",
-      vibe: "Dosbarth y dyfodol gyda rwtinau llawn egni, sgiliau hyder a gwaith tîm creadigol.",
-      time: "I'w gyhoeddi",
-      price: "O £7 y wers",
-      location: "Bae Colwyn / Gogledd Cymru - lleoliad i'w gadarnhau",
-    },
-    {
       name: "Street + Commercial",
       ages: "Oed 10-15",
-      vibe: "Y dosbarth cyntaf: rwtinau street a commercial gyda chyfle i ddatblygu tuag at grŵp perfformio.",
+      vibe: "Y wers gyntaf sydd wedi'i chynllunio: rwtinau street a commercial gyda chyfle i ddatblygu tuag at grŵp perfformio.",
       time: "Dydd Llun, 7-8yh",
       price: "O £8 y wers",
       location: "Bae Colwyn / Colwyn Bay",
@@ -266,25 +250,9 @@ const classes = {
   ],
   en: [
     {
-      name: "Mini Movers",
-      ages: "Ages 4-7",
-      vibe: "Future class for playful movement, rhythm games and first dance foundations.",
-      time: "To be announced",
-      price: "From £6 per class",
-      location: "Colwyn Bay / North Wales venue TBC",
-    },
-    {
-      name: "Junior Dance",
-      ages: "Ages 8-11",
-      vibe: "Future class with high-energy routines, confidence skills and creative teamwork.",
-      time: "To be announced",
-      price: "From £7 per class",
-      location: "Colwyn Bay / North Wales venue TBC",
-    },
-    {
       name: "Street + Commercial",
       ages: "Ages 10-15",
-      vibe: "The first class: street and commercial routines with the chance to develop towards a performance group.",
+      vibe: "The first planned class: street and commercial routines with the chance to develop towards a performance group.",
       time: "Mondays, 7-8pm",
       price: "From £8 per class",
       location: "Colwyn Bay",
@@ -635,7 +603,7 @@ function Classes({
             {t.classesSection.heading}
           </h2>
         </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <div className="mt-10 grid max-w-xl gap-5">
           {classes[language].map((danceClass) => (
             <article
               key={danceClass.name}
@@ -887,12 +855,6 @@ function Contact({ t }: { t: (typeof copy)[Language] }) {
         </div>
         <div className="rounded-3xl bg-white p-6 shadow-[8px_8px_0_#ff1493]">
           <ul className="space-y-4 text-lg font-bold text-[var(--kinetik-ink)]">
-            <li>
-              {t.contact.email}:{" "}
-              <a className="underline decoration-4 decoration-[var(--kinetik-lime)]" href="mailto:hello@kinetikdancers.co.uk">
-                hello@kinetikdancers.co.uk
-              </a>
-            </li>
             <li>
               Instagram:{" "}
               <a className="underline decoration-4 decoration-[var(--kinetik-lime)]" href={instagramUrl} target="_blank" rel="noopener noreferrer">

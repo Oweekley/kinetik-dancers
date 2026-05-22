@@ -25,7 +25,7 @@ function InfoPage({ title, englishTitle }: { title: string; englishTitle: string
           </p>
           <p>
             We collect enquiry form details so we can respond about dance
-            classes, trial spaces and class information.
+            class enquiries, trial spaces and class information.
           </p>
           <p>
             Gall hyn gynnwys enw rhiant/gwarcheidwad, enw ac oed y dawnsiwr,
@@ -36,8 +36,8 @@ function InfoPage({ title, englishTitle }: { title: string; englishTitle: string
             the website hosting/form provider and used only for class enquiries.
           </p>
           <p>
-            I ofyn am newid neu ddileu eich manylion, cysylltwch drwy e-bost:
-            hello@kinetikdancers.co.uk.
+            I ofyn am newid neu ddileu eich manylion, cysylltwch â Kinetik
+            Dancers drwy Instagram.
           </p>
         </div>
       </article>

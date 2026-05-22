@@ -30,9 +30,9 @@ npm run build
 
 Most day-to-day content is in `app/page.tsx`.
 
-- Edit class names, age ranges, prices and locations in the `classes` array.
+- Edit the planned class name, age range, price and location in the `classes` array.
 - Edit the four benefit cards in the `features` array.
-- Update the placeholder email, area and Instagram link near the top of the file.
+- Update the area and Instagram link near the top of the file.
 - Replace placeholder policy links in the footer when those pages exist.
 
 ## Form setup
@@ -68,7 +68,7 @@ This project includes `netlify.toml` and `@netlify/plugin-nextjs` so Netlify can
 
 ## Set up professional email
 
-For `hello@kinetikdancers.co.uk`, use one of these low-cost options:
+To add a professional email later, use one of these low-cost options:
 
 - **Zoho Mail:** affordable hosted email with a real inbox.
 - **Email forwarding from the domain registrar:** forwards messages to an existing Gmail/Outlook inbox.

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   applicationName: "Kinetik Dancers",
   title: "Kinetik Dancers | Gwersi Dawns ym Mae Colwyn",
   description:
-    "Gwersi dawns i unrhyw un rhwng 10-15 oed ym Mae Colwyn gyda Keitija Knutova. Anfonwch neges am fwy o wybodaeth.",
+    "Gwers ddawns i unrhyw un rhwng 10-15 oed ym Mae Colwyn gyda Keitija Knutova. Anfonwch neges am fwy o wybodaeth.",
   keywords: [
     "Kinetik Dancers",
     "gwersi dawns",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kinetik Dancers",
     description:
-      "Gwersi dawns i unrhyw un rhwng 10-15 oed ym Mae Colwyn gyda Keitija Knutova.",
+      "Gwers ddawns i unrhyw un rhwng 10-15 oed ym Mae Colwyn gyda Keitija Knutova.",
     url: siteUrl,
     siteName: "Kinetik Dancers",
     images: [
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kinetik Dancers",
     description:
-      "Dance classes for anyone aged 10-15 in Colwyn Bay with Keitija Knutova.",
+      "A dance class for anyone aged 10-15 in Colwyn Bay with Keitija Knutova.",
     images: ["/kinetik-logo.jpg"],
   },
   icons: {
@@ -81,7 +81,7 @@ export default function RootLayout({
               url: siteUrl,
               image: `${siteUrl}/kinetik-logo.jpg`,
               description:
-                "Welsh-first street and commercial dance classes for ages 10-15 in Colwyn Bay.",
+                "Welsh-first street and commercial dance class for ages 10-15 in Colwyn Bay.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Colwyn Bay",
@@ -90,8 +90,6 @@ export default function RootLayout({
               },
               sameAs: [
                 "https://www.instagram.com/kinetikdancers",
-                "https://www.instagram.com/step.one.performingarts",
-                "https://www.instagram.com/autonomydancers",
               ],
               founder: {
                 "@type": "Person",
