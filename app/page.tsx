@@ -714,15 +714,36 @@ function BookingForm({
   language: Language;
   t: (typeof copy)[Language];
 }) {
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
     const host = window.location.hostname;
     const isLocal =
       host === "localhost" || host === "127.0.0.1" || host === "::1";
 
     if (isLocal) {
-      event.preventDefault();
       window.location.assign("/diolch");
+      return;
     }
+
+    const formData = new FormData(event.currentTarget);
+    const encodedData = new URLSearchParams();
+
+    formData.forEach((value, key) => {
+      encodedData.append(key, String(value));
+    });
+
+    if (!encodedData.has("form-name")) {
+      encodedData.set("form-name", formName);
+    }
+
+    await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encodedData.toString(),
+    });
+
+    window.location.assign("/diolch");
   }
 
   return (
