@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { type FormEvent, useEffect, useState } from "react";
 
 const instagramUrl =
   "https://www.instagram.com/kinetikdancers?igsh=MW9sYng3ejZxc2FudQ==";
@@ -13,6 +13,7 @@ const copy = {
   cy: {
     navLabel: "Prif ddewislen",
     homeLabel: "Hafan Kinetik Dancers",
+    skipLink: "Neidio i'r cynnwys",
     trial: "Gwers brawf",
     languageLabel: "Dewis iaith",
     languageName: "Cymraeg",
@@ -124,6 +125,7 @@ const copy = {
   en: {
     navLabel: "Main navigation",
     homeLabel: "Kinetik Dancers home",
+    skipLink: "Skip to content",
     trial: "Trial class",
     languageLabel: "Choose language",
     languageName: "Welsh",
@@ -352,17 +354,17 @@ export default function Home() {
         href="#content"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-white focus:px-5 focus:py-3 focus:font-black focus:text-[var(--kinetik-ink)] focus:shadow-xl"
       >
-        Skip to content
+        {t.skipLink}
       </a>
       <main id="content">
-      <Header language={language} setLanguage={setLanguage} t={t} />
-      <Hero t={t} />
-      <About t={t} />
-      <Classes language={language} t={t} />
-      <WhyChoose language={language} t={t} />
-      <BookingForm language={language} t={t} />
-      <Contact t={t} />
-      <Footer t={t} />
+        <Header language={language} setLanguage={setLanguage} t={t} />
+        <Hero t={t} />
+        <About t={t} />
+        <Classes language={language} t={t} />
+        <WhyChoose language={language} t={t} />
+        <BookingForm language={language} t={t} />
+        <Contact t={t} />
+        <Footer t={t} />
       </main>
     </>
   );
@@ -712,6 +714,17 @@ function BookingForm({
   language: Language;
   t: (typeof copy)[Language];
 }) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    const host = window.location.hostname;
+    const isLocal =
+      host === "localhost" || host === "127.0.0.1" || host === "::1";
+
+    if (isLocal) {
+      event.preventDefault();
+      window.location.assign("/diolch");
+    }
+  }
+
   return (
     <section id="booking" className="bg-white px-5 py-20">
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
@@ -730,7 +743,8 @@ function BookingForm({
           Netlify Forms is enabled with name/data-netlify.
           In Netlify, open Forms for this site after deployment to view submissions.
           You can swap this later for Formspree, Basin, a custom API route, or Calendly.
-        */}        <form
+        */}
+        <form
           name={formName}
           method="POST"
           action="/diolch"
@@ -759,6 +773,7 @@ function BookingForm({
           action="/diolch"
           data-netlify="true"
           data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
           className="rounded-3xl bg-[#f6f7ef] p-5 shadow-sm ring-1 ring-black/5 sm:p-8"
         >
           <input type="hidden" name="form-name" value={formName} />
