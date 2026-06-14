@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Telerau | Kinetik Dancers",
-  description: "Telerau sylfaenol Kinetik Dancers.",
+  description: "Telerau Kinetik Dancers ar gyfer gwybodaeth a gwersi dawns.",
 };
 
 export default function TermsPage() {
@@ -16,16 +16,16 @@ export default function TermsPage() {
         <p className="mt-2 text-xl font-bold text-neutral-700">Terms</p>
         <div className="mt-8 space-y-5 text-lg leading-8 text-neutral-800">
           <p>
-            Mae'r wefan hon yn darparu gwybodaeth gyffredinol am Kinetik Dancers
-            a dosbarthiadau dawns.
+            Mae'r wefan hon yn rhoi gwybodaeth am Kinetik Dancers a'r dosbarth
+            Street + Commercial i oed 10-15.
           </p>
           <p>
-            Class details, prices, locations and availability may change. Final
-            details will be confirmed directly before booking.
+            Class details, prices, locations and spaces may change. Final
+            details are confirmed before booking.
           </p>
           <p>
-            Mae rhieni/gwarcheidwaid yn gyfrifol am sicrhau bod manylion
-            iechyd, cyswllt a chaniatâd cywir yn cael eu darparu.
+            Mae rhieni/gwarcheidwaid yn gyfrifol am ddarparu manylion iechyd,
+            cyswllt a chaniatâd cywir.
           </p>
           <p>
             Trial classes and attendance are subject to available spaces,

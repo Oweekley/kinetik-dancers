@@ -7,9 +7,9 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: "Kinetik Dancers",
-  title: "Kinetik Dancers | Gwersi Dawns ym Mae Colwyn",
+  title: "Kinetik Dancers | Street + Commercial Dance in Colwyn Bay",
   description:
-    "Gwers ddawns i unrhyw un rhwng 10-15 oed ym Mae Colwyn gyda Keitija Knutova. Anfonwch neges am fwy o wybodaeth.",
+    "Street + Commercial Dance for ages 10-15 in Colwyn Bay. Mondays 7-8pm with Keitija Knutova.",
   keywords: [
     "Kinetik Dancers",
     "gwersi dawns",
@@ -18,6 +18,8 @@ export const metadata: Metadata = {
     "dawns Gogledd Cymru",
     "gwersi dawns Bae Colwyn",
     "gwersi dawns Colwyn Bay",
+    "street dance Colwyn Bay",
+    "commercial dance Colwyn Bay",
     "street commercial dance",
     "dance classes",
     "children dance classes",
@@ -29,17 +31,17 @@ export const metadata: Metadata = {
   creator: "Kinetik Dancers",
   publisher: "Kinetik Dancers",
   openGraph: {
-    title: "Kinetik Dancers",
+    title: "Kinetik Dancers | Street + Commercial Dance",
     description:
-      "Gwers ddawns i unrhyw un rhwng 10-15 oed ym Mae Colwyn gyda Keitija Knutova.",
+      "Street + Commercial Dance for ages 10-15 in Colwyn Bay. Mondays 7-8pm.",
     url: siteUrl,
     siteName: "Kinetik Dancers",
     images: [
       {
-        url: "/kinetik-logo.jpg",
-        width: 1080,
-        height: 1080,
-        alt: "Kinetik Dancers logo",
+        url: "/kinetik-dance-hero.webp",
+        width: 1672,
+        height: 941,
+        alt: "Kinetik Dancers street and commercial dance class",
       },
     ],
     locale: "cy_GB",
@@ -48,10 +50,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kinetik Dancers",
+    title: "Kinetik Dancers | Street + Commercial Dance",
     description:
-      "A dance class for anyone aged 10-15 in Colwyn Bay with Keitija Knutova.",
-    images: ["/kinetik-logo.jpg"],
+      "Street + Commercial Dance for ages 10-15 in Colwyn Bay. Mondays 7-8pm.",
+    images: ["/kinetik-dance-hero.webp"],
   },
   icons: {
     icon: "/kinetik-logo.jpg",
@@ -79,9 +81,9 @@ export default function RootLayout({
               "@type": "SportsActivityLocation",
               name: "Kinetik Dancers",
               url: siteUrl,
-              image: `${siteUrl}/kinetik-logo.jpg`,
+              image: `${siteUrl}/kinetik-dance-hero.webp`,
               description:
-                "Welsh-first street and commercial dance class for ages 10-15 in Colwyn Bay.",
+                "Street + Commercial Dance for ages 10-15 in Colwyn Bay. Mondays 7-8pm.",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Colwyn Bay",
@@ -94,6 +96,29 @@ export default function RootLayout({
               founder: {
                 "@type": "Person",
                 name: "Keitija Knutova",
+              },
+              event: {
+                "@type": "Event",
+                name: "Street + Commercial Dance Class",
+                eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+                eventStatus: "https://schema.org/EventScheduled",
+                startDate: "2026-06-01T19:00:00+01:00",
+                location: {
+                  "@type": "Place",
+                  name: "Colwyn Bay",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Colwyn Bay",
+                    addressRegion: "Conwy",
+                    addressCountry: "GB",
+                  },
+                },
+                offers: {
+                  "@type": "Offer",
+                  price: "8",
+                  priceCurrency: "GBP",
+                  availability: "https://schema.org/InStock",
+                },
               },
             }),
           }}
