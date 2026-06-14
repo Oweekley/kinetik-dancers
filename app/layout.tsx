@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 const siteUrl =
@@ -62,6 +62,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#b8ff00",
 };
 
 export default function RootLayout({

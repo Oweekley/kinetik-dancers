@@ -515,6 +515,7 @@ export default function Home() {
       </a>
       <main id="content">
         <Header language={language} setLanguage={setLanguage} t={t} />
+        <MobileBookingBar t={t} />
         <Hero t={t} />
         <MomentumStrip language={language} />
         <About t={t} />
@@ -575,13 +576,13 @@ function Header({
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-white/90 backdrop-blur">
       <nav
-        className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-4"
+        className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-2 px-4 py-3 sm:gap-3 sm:px-5 sm:py-4"
         aria-label={t.navLabel}
       >
         <a href="#content" className="flex min-w-0 items-center gap-3" aria-label={t.homeLabel}>
-          <LogoMark className="size-12 shrink-0" />
-          <span className="truncate text-lg font-black text-[var(--kinetik-ink)]">
-            Kinetik Dancers
+          <LogoMark className="size-11 shrink-0 sm:size-12" />
+          <span className="max-w-[42vw] truncate text-base font-black text-[var(--kinetik-ink)] sm:max-w-none sm:text-lg">
+            Kinetik <span className="hidden min-[360px]:inline">Dancers</span>
           </span>
         </a>
         <div className="hidden items-center gap-6 text-sm font-bold text-neutral-700 md:flex">
@@ -600,7 +601,7 @@ function Header({
             <button
               type="button"
               onClick={() => setLanguage("cy")}
-              className={`rounded-full px-3 py-2 transition ${
+              className={`min-h-10 rounded-full px-3 py-2 transition ${
                 language === "cy"
                   ? "bg-[var(--kinetik-lime)] text-[var(--kinetik-ink)]"
                   : "text-neutral-600 hover:text-[var(--kinetik-ink)]"
@@ -612,7 +613,7 @@ function Header({
             <button
               type="button"
               onClick={() => setLanguage("en")}
-              className={`rounded-full px-3 py-2 transition ${
+              className={`min-h-10 rounded-full px-3 py-2 transition ${
                 language === "en"
                   ? "bg-[var(--kinetik-lime)] text-[var(--kinetik-ink)]"
                   : "text-neutral-600 hover:text-[var(--kinetik-ink)]"
@@ -683,28 +684,61 @@ function Header({
   );
 }
 
+function MobileBookingBar({ t }: { t: (typeof copy)[Language] }) {
+  return (
+    <div className="mobile-booking-bar fixed inset-x-0 bottom-0 z-50 border-t border-black/10 bg-white/95 px-4 pt-3 shadow-[0_-12px_32px_rgba(17,19,22,0.14)] backdrop-blur md:hidden">
+      <div className="mx-auto flex max-w-6xl gap-2">
+        <a
+          href="#classes"
+          className="inline-flex min-h-12 flex-1 items-center justify-center rounded-full bg-neutral-100 px-4 text-sm font-black text-[var(--kinetik-ink)] ring-1 ring-black/10"
+        >
+          {t.hero.secondaryCta}
+        </a>
+        <a
+          href="#booking"
+          className="inline-flex min-h-12 flex-[1.3] items-center justify-center rounded-full bg-[var(--kinetik-pink)] px-4 text-sm font-black text-[var(--kinetik-ink)] shadow-[4px_4px_0_#111316]"
+        >
+          {t.trial}
+        </a>
+      </div>
+    </div>
+  );
+}
+
 function Hero({ t }: { t: (typeof copy)[Language] }) {
   return (
     <section className="hero-grid relative isolate overflow-hidden bg-[var(--kinetik-lime)]">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.8),transparent_28%),linear-gradient(135deg,rgba(0,184,169,0.2),transparent_38%)]" />
       <div className="motion-line -right-24 top-24 h-36 w-80" aria-hidden="true" />
       <div className="motion-line -left-24 bottom-24 h-32 w-72" aria-hidden="true" />
-      <div className="mx-auto grid min-h-[calc(100vh-76px)] max-w-7xl items-center gap-10 px-5 py-10 lg:grid-cols-[0.92fr_1.08fr] lg:py-14">
+      <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-8 sm:px-5 sm:py-10 lg:min-h-[calc(100vh-76px)] lg:grid-cols-[0.92fr_1.08fr] lg:gap-10 lg:py-14">
         <div className="relative z-10 max-w-3xl">
           <p className="mb-4 inline-flex rounded-full bg-white px-4 py-2 text-xs font-black uppercase tracking-wide text-[var(--kinetik-ink)] shadow-[4px_4px_0_#ff1493] sm:text-sm">
             {t.hero.kicker}
           </p>
-          <h1 className="text-4xl font-black leading-[1.03] text-[var(--kinetik-ink)] [overflow-wrap:anywhere] sm:text-6xl sm:leading-[0.98] lg:text-7xl">
+          <h1 className="text-[2.7rem] font-black leading-[0.98] text-[var(--kinetik-ink)] [overflow-wrap:anywhere] min-[380px]:text-5xl sm:text-6xl lg:text-7xl">
             {t.hero.headline}
           </h1>
-          <p className="mt-6 max-w-2xl text-lg font-semibold leading-8 text-neutral-800 sm:text-xl">
+          <p className="mt-5 max-w-2xl text-base font-semibold leading-7 text-neutral-800 sm:mt-6 sm:text-xl sm:leading-8">
             {t.hero.subheading}
           </p>
+          <div className="mt-5 grid grid-cols-3 gap-2 rounded-lg bg-white/90 p-2 text-center shadow-sm ring-1 ring-black/10 lg:hidden">
+            {t.hero.stats.map(([value, label]) => (
+              <div key={value} className="min-w-0 rounded-lg bg-[#f6f7ef] p-2">
+                <p className="break-words text-lg font-black leading-tight text-[var(--kinetik-ink)]">
+                  {value}
+                </p>
+                <p className="text-[0.68rem] font-bold uppercase leading-tight text-neutral-600">
+                  {label}
+                </p>
+              </div>
+            ))}
+          </div>
           <div className="mt-5 flex flex-wrap gap-2">
             {t.hero.trust.map((item) => (
               <span
                 key={item}
-                className="rounded-full bg-white/85 px-4 py-2 text-sm font-black text-[var(--kinetik-ink)] shadow-sm ring-1 ring-black/5"
+                className="rounded-full bg-white/85 px-3 py-2 text-xs font-black text-[var(--kinetik-ink)] shadow-sm ring-1 ring-black/5 sm:px-4 sm:text-sm"
               >
                 {item}
               </span>
@@ -736,25 +770,25 @@ function Hero({ t }: { t: (typeof copy)[Language] }) {
             {t.hero.signoff}
           </p>
         </div>
-        <div className="relative isolate min-h-[430px] lg:min-h-[620px]" aria-label={t.hero.graphicLabel}>
-          <div className="kinetik-block absolute -right-2 top-8 z-0 h-28 w-44 rotate-6 bg-[var(--kinetik-pink)] shadow-[10px_10px_0_rgba(255,255,255,0.62)] sm:h-36 sm:w-56" />
-          <div className="absolute -left-3 bottom-20 z-0 h-24 w-36 -rotate-12 bg-[var(--kinetik-teal)] shadow-[8px_8px_0_#111316]" />
+        <div className="relative isolate min-h-[330px] sm:min-h-[430px] lg:min-h-[620px]" aria-label={t.hero.graphicLabel}>
+          <div className="kinetik-block absolute -right-2 top-8 z-0 h-20 w-32 rotate-6 bg-[var(--kinetik-pink)] shadow-[10px_10px_0_rgba(255,255,255,0.62)] sm:h-36 sm:w-56" />
+          <div className="absolute -left-3 bottom-14 z-0 h-20 w-28 -rotate-12 bg-[var(--kinetik-teal)] shadow-[8px_8px_0_#111316] sm:bottom-20 sm:h-24 sm:w-36" />
           <div className="relative z-10 overflow-hidden rounded-lg bg-[var(--kinetik-ink)] shadow-[12px_12px_0_#ff1493] ring-4 ring-white">
             <img
               src="/kinetik-dance-hero.webp"
               alt={t.hero.imageAlt}
-              className="aspect-[4/5] w-full object-cover object-center sm:aspect-[16/10] lg:aspect-[5/4]"
+              className="aspect-[1.05/1] w-full object-cover object-center sm:aspect-[16/10] lg:aspect-[5/4]"
             />
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/88 via-black/50 to-transparent p-5 text-white sm:p-7">
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/88 via-black/50 to-transparent p-4 text-white sm:p-7">
               <p className="inline-flex rounded-full bg-[var(--kinetik-lime)] px-3 py-1 text-xs font-black uppercase text-[var(--kinetik-ink)]">
                 {t.hero.notice}
               </p>
-              <p className="mt-3 max-w-lg text-3xl font-black leading-tight sm:text-5xl">
+              <p className="mt-3 max-w-lg text-2xl font-black leading-tight sm:text-5xl">
                 {t.hero.movement}
               </p>
             </div>
           </div>
-          <div className="relative z-20 mx-auto -mt-8 grid max-w-[92%] grid-cols-3 gap-2 rounded-lg bg-white p-3 text-center shadow-2xl ring-1 ring-black/10 sm:gap-3 sm:p-4">
+          <div className="relative z-20 mx-auto -mt-8 hidden max-w-[92%] grid-cols-3 gap-2 rounded-lg bg-white p-3 text-center shadow-2xl ring-1 ring-black/10 sm:gap-3 sm:p-4 lg:grid">
             {t.hero.stats.map(([value, label]) => (
               <div key={value} className="min-w-0 rounded-lg bg-[#f6f7ef] p-3">
                 <p className="break-words text-xl font-black leading-tight text-[var(--kinetik-ink)] sm:text-2xl">
@@ -774,7 +808,7 @@ function Hero({ t }: { t: (typeof copy)[Language] }) {
 
 function About({ t }: { t: (typeof copy)[Language] }) {
   return (
-    <section id="about" className="bg-white px-5 py-20">
+    <section id="about" className="bg-white px-4 py-14 sm:px-5 sm:py-20">
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
         <div>
           <p className="text-sm font-black uppercase text-[var(--kinetik-pink-dark)]">
@@ -821,7 +855,7 @@ function Classes({
   t: (typeof copy)[Language];
 }) {
   return (
-    <section id="classes" className="bg-[#f6f7ef] px-5 py-20">
+    <section id="classes" className="bg-[#f6f7ef] px-4 py-14 sm:px-5 sm:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <p className="text-sm font-black uppercase text-[var(--kinetik-pink-dark)]">
@@ -902,7 +936,7 @@ function Classes({
 
 function Expect({ t }: { t: (typeof copy)[Language] }) {
   return (
-    <section id="expect" className="bg-white px-5 py-20">
+    <section id="expect" className="bg-white px-4 py-14 sm:px-5 sm:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <p className="text-sm font-black uppercase text-[var(--kinetik-pink-dark)]">
@@ -941,7 +975,7 @@ function WhyChoose({
   t: (typeof copy)[Language];
 }) {
   return (
-    <section id="why" className="bg-[var(--kinetik-ink)] px-5 py-20 text-white">
+    <section id="why" className="bg-[var(--kinetik-ink)] px-4 py-14 text-white sm:px-5 sm:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="max-w-3xl">
           <p className="text-sm font-black uppercase text-[var(--kinetik-lime)]">
@@ -967,7 +1001,7 @@ function WhyChoose({
 
 function Pathway({ t }: { t: (typeof copy)[Language] }) {
   return (
-    <section className="bg-white px-5 py-20">
+    <section className="bg-white px-4 py-14 sm:px-5 sm:py-20">
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>
           <p className="text-sm font-black uppercase text-[var(--kinetik-pink-dark)]">
@@ -1001,7 +1035,7 @@ function Pathway({ t }: { t: (typeof copy)[Language] }) {
 
 function ParentInfo({ t }: { t: (typeof copy)[Language] }) {
   return (
-    <section className="bg-[#f6f7ef] px-5 py-20">
+    <section className="bg-[#f6f7ef] px-4 py-14 sm:px-5 sm:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
           <div className="max-w-3xl">
@@ -1036,7 +1070,7 @@ function ParentInfo({ t }: { t: (typeof copy)[Language] }) {
 
 function Faq({ t }: { t: (typeof copy)[Language] }) {
   return (
-    <section id="faq" className="bg-white px-5 py-20">
+    <section id="faq" className="bg-white px-4 py-14 sm:px-5 sm:py-20">
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
           <p className="text-sm font-black uppercase text-[var(--kinetik-pink-dark)]">
@@ -1120,7 +1154,7 @@ function BookingForm({
   }
 
   return (
-    <section id="booking" className="bg-white px-5 py-20">
+    <section id="booking" className="bg-white px-4 py-14 sm:px-5 sm:py-20">
       <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
           <p className="text-sm font-black uppercase text-[var(--kinetik-pink-dark)]">
@@ -1258,7 +1292,7 @@ function Field({
 
 function Contact({ t }: { t: (typeof copy)[Language] }) {
   return (
-    <section id="contact" className="bg-[var(--kinetik-lime)] px-5 py-20">
+    <section id="contact" className="bg-[var(--kinetik-lime)] px-4 py-14 sm:px-5 sm:py-20">
       <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-[1fr_1fr] md:items-end">
         <div>
           <p className="text-sm font-black uppercase text-[var(--kinetik-ink)]">
